@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pregled slobodnih knjiga</h2>
+
+@*<label>Total Students:</label>  @ViewBag.TotalStudents*@
+
+
+
+<button type="button"> @Html.ActionLink("Registracija", "Registracija")</button> <button type="button"> @Html.ActionLink("Prijava", "Prijava")</button>
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImePisca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezimePisca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GodinaIzdanja)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrezimePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
+            </td>
+            <td>
+                @Html.ActionLink("Rezervacija", "Rezervacija", new { id = item.KnjigaID })
+            </td>
+        </tr>
+    }
+
+</table>

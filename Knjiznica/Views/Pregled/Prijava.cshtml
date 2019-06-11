@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Prijava";
+}
+
+<h2>Prijava</h2>
+
+@using (Html.BeginForm("PrijavaUspjesna", "Pregled", FormMethod.Post))
+{
+    <dt>
+        Upišite korisničko ime:
+    </dt>
+    <dd>
+        <input type="text" id="" name="KorisnickoIme" />
+    </dd>
+    <br />
+
+    <dt>
+        Upišite lozinku:
+    </dt>
+    <dd>
+        <input type="text" id="" name="Lozinka" />
+    </dd>
+    <br />
+
+
+    <input type="submit" value="Prijavi se" />
+
+}

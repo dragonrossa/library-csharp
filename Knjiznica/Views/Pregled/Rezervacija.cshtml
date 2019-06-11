@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Rezervacija";
+}
+
+<h2>Rezervacija</h2>
+
+
+@using (Html.BeginForm("RezervacijaStatus", "Pregled", new { test = ViewContext.RouteData.Values["id"].ToString() }, FormMethod.Post))
+{
+    <dt>
+        Ime
+    </dt>
+    <dd>
+        <input type="text" id="" name="Ime" />
+    </dd>
+    <br />
+
+    <dt>
+        Prezime
+    </dt>
+    <dd>
+        <input type="text" id="" name="Prezime" />
+    </dd>
+
+    <br />
+    <dt>
+        Adresa stanovanja
+    </dt>
+    <dd>
+        <input type="text" id="" name="Adresa" />
+    </dd>
+    <br />
+
+    <dt>
+        E-mail
+    </dt>
+    <dd>
+        <input type="text" id="" name="Email" />
+    </dd>
+    <br />
+    <dt>
+        Telefon
+    </dt>
+    <dd>
+        <input type="text" id="" name="Telefon" />
+    </dd>
+    <br />
+
+    <input type="submit" value="Submit" />
+
+}

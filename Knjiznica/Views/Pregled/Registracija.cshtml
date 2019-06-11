@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Registracija";
+}
+
+
+<h2>Registracija</h2>
+
+@using (Html.BeginForm("RegistracijaUspjesna", "Pregled", FormMethod.Post))
+{
+    <dt>
+        Korisničko ime:
+    </dt>
+    <dd>
+        <input type="text" id="" name="KorisnickoIme" />
+    </dd>
+    <br />
+
+    <dt>
+        Lozinka:
+    </dt>
+    <dd>
+        <input type="text" id="" name="Lozinka" />
+    </dd>
+    <br />
+
+
+    <input type="submit" value="Registriraj se" />
+
+}
