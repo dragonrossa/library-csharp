@@ -7,5 +7,7 @@ Library created in ASP net with C#, worked with MSSQL and TSQL.
 - Login and registration
 
 DOWNLOAD this folder
+
 CREATE DATABASE Knjiznica from Knjiznica_database.sql
+
 OPEN SOLUTION in Visual Studio and ENJOY
