@@ -18,7 +18,7 @@ namespace Knjiznica.Models
            
             this.ClanID = clanID;
             this.KnjigaID = knjigaID;
-          
+           
         }
     }
 }
