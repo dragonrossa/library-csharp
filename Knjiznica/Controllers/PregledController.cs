@@ -16,6 +16,11 @@ namespace Knjiznica.Controllers
 
         private List<Knjiga> ListaKnjiga = new List<Knjiga>();
 
+
+        //private List<Rezervacija> ListaRezervacija = new List<Rezervacija>();
+
+       
+
         private string ConnStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // GET: Pregled
@@ -246,7 +251,7 @@ namespace Knjiznica.Controllers
 
                             if (reader[0].ToString() == "1") 
                             {
-                                return View();
+                                return View("PregledRezervacija");
                             }
                             else
                             {
@@ -286,5 +291,67 @@ namespace Knjiznica.Controllers
             return View();
         }
 
+       
+        public ActionResult PregledRezervacija()
+        {
+
+            
+
+            //string Query = "SELECT c.Ime,c.Prezime, k.NaslovKnjige FROM Posudba p JOIN Clanovi c ON c.ClanID=p.ClanID JOIN Knjige k ON k.KnjigaID=p.KnjigaID";
+
+            //using (SqlConnection connection = new SqlConnection(ConnStr))
+            //{
+            //    SqlCommand command = new SqlCommand(Query, connection);
+
+            //    try
+            //    {
+            //        connection.Open();
+            //        SqlDataReader reader = command.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            Debug.WriteLine("\t{0}\t{1}\t{2}",
+            //                reader[0], reader[1], reader[2]);
+
+            //            //ListaRezervacija.Add(new Rezervacija(reader[0].ToString(), reader[1].ToString(), reader[2].ToString()));
+
+            //            //Debug.WriteLine(ListaRezervacija);
+
+            //            Rezervacija rezervacija = new Rezervacija(reader[0].ToString(), reader[1].ToString(), reader[2].ToString());
+
+            //            Debug.WriteLine(rezervacija);
+
+            //        }
+            //        reader.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+           
+            return View();
+
+
+            //return View();
+        }
+
+
+       
+
+  
+        public ActionResult Knjige()
+        {
+
+            
+
+            return View();
+
+                
+        }
+
+        public ActionResult Odjava()
+        {
+            return View();
+        }
     }
 }

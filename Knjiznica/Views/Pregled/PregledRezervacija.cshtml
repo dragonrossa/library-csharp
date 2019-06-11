@@ -1,0 +1,61 @@
+﻿
+
+
+@{
+    ViewBag.Title = "PregledRezervacija";
+}
+
+<h2>Pregled rezervacija knjiga</h2>
+
+<h3>Linkovi</h3>
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4" style="background-color:white;">
+
+
+            <div class="list-group" id="list-tab" role="tablist">
+
+                <p> @Html.ActionLink("Rezervacije", "PregledRezervacija")</p>
+
+                <p>  @Html.ActionLink("Knjige", "Knjige") </p>
+
+                <p>    @Html.ActionLink("Odjava", "Odjava")</p>
+
+
+            </div>
+
+
+        </div>
+        <div class="col-sm-4" style="background-color:white;"></div>
+
+
+
+
+
+        <br />
+
+
+
+
+
+
+        <div class="col-sm-4" style="background-color:white;"></div>
+
+
+
+    </div>
+
+    @Html.ActionLink("Povratak", "Index")
+
+    <table>
+        <tr></tr>
+
+
+
+
+
+
+    </table>
