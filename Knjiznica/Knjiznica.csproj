@@ -134,6 +134,7 @@
     <Content Include="Views\Pregled\PregledRezervacija.cshtml" />
     <Content Include="Views\Pregled\Knjige.cshtml" />
     <Content Include="Views\Pregled\Odjava.cshtml" />
+    <Content Include="Views\Pregled\Rezervacijaa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

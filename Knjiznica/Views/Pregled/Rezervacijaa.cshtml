@@ -1,67 +1,19 @@
 ﻿@model IEnumerable<Knjiznica.Models.Rezervacija>
 
-
 @{
-    ViewBag.Title = "PregledRezervacija";
+    ViewBag.Title = "Rezervacijaa";
 }
+
 
 <h2>Pregled rezervacija knjiga</h2>
 
 <h3>Linkovi</h3>
 
+<p> @Html.ActionLink("Rezervacije", "PregledRezervacija")</p>
 
-<div class="container-fluid">
+<p>  @Html.ActionLink("Knjige", "Knjige") </p>
 
-    <div class="row">
-        <div class="col-sm-4" style="background-color:white;">
-
-
-            <div class="list-group" id="list-tab" role="tablist">
-
-                <p> @Html.ActionLink("Rezervacije", "PregledRezervacija")</p>
-
-                <p>  @Html.ActionLink("Knjige", "Knjige") </p>
-
-                <p>    @Html.ActionLink("Odjava", "Odjava")</p>
-
-
-            </div>
-
-
-        </div>
-        <div class="col-sm-4" style="background-color:white;"></div>
-
-
-
-
-
-        <br />
-
-
-
-
-
-
-        <div class="col-sm-4" style="background-color:white;"></div>
-
-
-
-    </div>
-
-    @Html.ActionLink("Povratak", "Index")
-
-    <table>
-        <tr></tr>
-
-
-
-
-
-
-    </table>
-</div>
-
-
+<p>    @Html.ActionLink("Odjava", "Odjava")</p>
 
 
 <table class="table">
@@ -78,13 +30,9 @@
         <th></th>
     </tr>
 
-
-   @if(Model != null) {
-
-    foreach (var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
-            
             <td>
                 @Html.DisplayFor(modelItem => item.Ime)
             </td>
@@ -94,13 +42,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NaslovKnjige)
             </td>
-            <td>
+            @*<td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.RezervacijaID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.RezervacijaID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.RezervacijaID })
-            </td>
+            </td>*@
         </tr>
-    }
     }
 
 </table>

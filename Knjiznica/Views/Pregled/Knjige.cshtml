@@ -1,7 +1,50 @@
-﻿
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+
 @{
     ViewBag.Title = "Knjige";
 }
 
-<h2>Knjige</h2>
 
+<h2>Pregled knjiga</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImePisca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrezimePisca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GodinaIzdanja)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrezimePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Povratak", "Index")
