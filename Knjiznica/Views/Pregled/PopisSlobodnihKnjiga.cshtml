@@ -40,33 +40,27 @@
     <table class="table" >
         <tr >
             <th >
-                @* @Html.DisplayNameFor(model => model.NaslovKnjige)*@
+            
                 Naslov knjige
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.ImePisca)*@
+           
                 Ime pisca
             </th>
             <th>
-                @*  @Html.DisplayNameFor(model => model.PrezimePisca)*@
+          
                 Prezime pisca
             </th>
             <th>
-                @*  @Html.DisplayNameFor(model => model.GodinaIzdanja)*@
+             
                 Godina izdanja
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.SlobodneKnjige)*@
+        
                 Broj knjiga
             </th>
 
 
-            @*<th>
-                    @Html.DisplayNameFor(model => model.BrojKnjiga)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BrojPosudba)
-                </th>*@
             <th></th>
         </tr>
 
@@ -89,12 +83,6 @@
                     @Html.DisplayFor(modelItem => item.SlobodneKnjige)
                 </td>
 
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.BrojKnjiga)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BrojPosudba)
-                    </td>*@
                 <td>
                     @Html.ActionLink("Rezervacija", "Rezervacija", new { id = item.KnjigaID })
                 </td>

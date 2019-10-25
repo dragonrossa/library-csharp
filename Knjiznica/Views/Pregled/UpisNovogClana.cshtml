@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="container">
+
 
 
     @using (Html.BeginForm())
@@ -21,10 +21,11 @@
 
 
 
-        <dt>
-            Korisničko ime
-        </dt>
-        <dd>
+    <dt class="container">
+
+        Korisničko ime
+    </dt>
+        <dd class="container">
 
 
             @Html.TextBox("korisnickoIme")
@@ -40,14 +41,14 @@
         <br />
 
 
-        <dt>
+        <dt class="container">
             Lozinka
         </dt>
-        <dd>
+        <dd class="container">
 
 
             @Html.TextBox("lozinka")
-            @* @Html.ValidationMessageFor(x => x.ImePisca)*@
+        
 
 
 
@@ -58,15 +59,15 @@
         <br />
 
 
-        <dt>
+        <dt class="container">
             Ime zaposlenika
         </dt>
-        <dd>
+        <dd class="container">
 
 
             @Html.TextBox("imeZaposlenika")
 
-            @* @Html.ValidationMessageFor(x => x.PrezimePisca)*@
+          
 
 
 
@@ -75,10 +76,10 @@
 
         <br />
 
-        <dt>
+        <dt class="container">
             Prezime zaposlenika
         </dt>
-        <dd>
+        <dd class="container">
 
 
             @Html.TextBox("prezimeZaposlenika")
@@ -95,10 +96,10 @@
 
 
 
-        <dt>
+        <dt class="container">
             Adresa zaposlenika
         </dt>
-        <dd>
+        <dd class="container">
 
 
 
@@ -114,10 +115,10 @@
 
         <br />
 
-        <dt>
+        <dt class="container">
             Poštanski broj
         </dt>
-        <dd>
+        <dd class="container">
 
 
 
@@ -130,10 +131,10 @@
 
         <br />
 
-        <dt>
+        <dt class="container">
             Odjel zaposlenika
         </dt>
-        <dd>
+        <dd class="container">
 
 
 
@@ -149,9 +150,9 @@
 
 
 
-
-
-        <input type="submit" value="Upisi" />
+        <dt class="container">  <input type="submit" value="Upisi" /></dt>
+       
+      
 
 
 
@@ -164,8 +165,6 @@
 
 
 
-
-</div>
 
 
 <div class="container">
