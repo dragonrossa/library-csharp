@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Knjiznica.Models.Zaposlenik>
+
+@{
+    ViewBag.Title = "PopisClanova";
+}
+
+
+<style>
+
+
+    tr {
+        border: 1px solid white !important;
+    }
+
+    th {
+        border: 1px solid white !important;
+    }
+
+    td {
+        border: 1px solid white !important;
+    }
+</style>
+
+
+
+<div class="container">
+    <h2>Popis članova knjižnice</h2>
+</div>
+
+<div class="container">
+
+
+    <table class="table">
+        <tr>
+
+
+            <th>
+                Ime 
+              
+            </th>
+            <th>
+                Prezime 
+          
+            </th>
+            <th>
+                Adresa 
+            
+            </th>
+            <th>
+                Postanski broj
+            
+            </th>
+            <th>
+                Odjel
+             
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImeZaposlenika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezimeZaposlenika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdresaZaposlenika)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostanskiBroj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OdjelZaposlenika)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+
+
+
+</div>
+<div class="container">
+    @Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+</div>
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+@{
+    ViewBag.Title = "PretraziSlobodneKnjige";
+}
+
+<h2>Pretraga slobodnih knjiga za posudbu</h2>
+
+@*@ViewBag.slobodnaKnjiga*@
+
+
+<table class="table">
+    <tr>
+        <th>
+
+            Naslov knjige
+        </th>
+        <th>
+
+            Ime pisca
+        </th>
+        <th>
+
+            Prezime pisca
+        </th>
+        <th>
+
+            Godina izdanja
+        </th>
+        <th>
+
+            Broj knjiga
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrezimePisca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SlobodneKnjige)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Rezervacija", "Rezervacija", new { id = item.KnjigaID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Povratak", "Index")
+

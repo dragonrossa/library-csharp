@@ -1,0 +1,71 @@
+﻿@model Knjiznica.Models.Knjiga
+
+
+@{
+    ViewBag.Title = "IzdavanjeKnjiga";
+    Html.EnableClientValidation(false);
+}
+
+<h2>IzdavanjeKnjiga</h2>
+
+
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div>
+        <label>
+            Naslov
+        </label>
+        @Html.EditorFor(x => x.NaslovKnjige)
+    </div>
+
+    <div>
+        <label>
+            Ime
+        </label>
+        @Html.EditorFor(x => x.ImePisca)
+    </div>
+
+    <div>
+        <label>
+            Prezime
+        </label>
+        @Html.EditorFor(x => x.PrezimePisca)
+    </div>
+
+    <div>
+        <label>
+            Godina izdanja
+        </label>
+        @Html.EditorFor(x => x.GodinaIzdanja)
+    </div>
+
+    <div>
+        <label>
+            Opis
+        </label>
+        @Html.EditorFor(x => x.Opis)
+    </div>
+
+
+    <div>
+        <label>
+            Broj knjiga
+        </label>
+        @Html.EditorFor(x => x.BrojKnjiga)
+    </div>
+
+
+    <input type="submit" value="Pošalji" />
+
+}

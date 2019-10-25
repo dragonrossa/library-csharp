@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Knjiznica.Models.Rezervacija>
+
+@{
+    ViewBag.Title = "PretraziRezervacije";
+}
+
+<h2>Rezultat pretrage rezervacije</h2>
+
+@ViewBag.kljucnaRijec
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+
+            <td>
+                @Html.ActionLink("Dodijeli status", "Status_rezervacije", new { rezervacijaId = item.RezervacijaID })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+
+

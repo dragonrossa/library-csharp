@@ -131,10 +131,33 @@
     <Content Include="Views\Pregled\Prijava.cshtml" />
     <Content Include="Views\Pregled\PrijavaUspjesna.cshtml" />
     <Content Include="Views\Pregled\PrijavaNeuspjesna.cshtml" />
-    <Content Include="Views\Pregled\PregledRezervacija.cshtml" />
     <Content Include="Views\Pregled\Knjige.cshtml" />
     <Content Include="Views\Pregled\Odjava.cshtml" />
-    <Content Include="Views\Pregled\Rezervacijaa.cshtml" />
+    <Content Include="Views\Pregled\PregledRezervacija.cshtml" />
+    <Content Include="Views\Pregled\Status_rezervacije.cshtml" />
+    <Content Include="Views\Pregled\PopisRezervacija.cshtml" />
+    <Content Include="Views\Pregled\UpisiRezervacijuSaStatusom.cshtml" />
+    <Content Include="Views\Pregled\IzmijenjenaRezervacija.cshtml" />
+    <Content Include="Views\Pregled\IzbrisiRezervaciju.cshtml" />
+    <Content Include="Views\Pregled\IzmijeniRezervaciju.cshtml" />
+    <Content Include="Views\Pregled\IzmijeniKnjigu.cshtml" />
+    <Content Include="Views\Pregled\IzmijenjenaKnjiga.cshtml" />
+    <Content Include="Views\Pregled\PromijeniKnjigu.cshtml" />
+    <Content Include="Views\Pregled\IzbrisiKnjigu.cshtml" />
+    <Content Include="Views\Pregled\UpisKnjige.cshtml" />
+    <Content Include="Views\Pregled\NovaKnjiga.cshtml" />
+    <Content Include="Views\Pregled\OdobrenaRezervacija.cshtml" />
+    <Content Include="Views\Pregled\NeodobrenaRezervacija.cshtml" />
+    <Content Include="Views\Pregled\PretraziKnjigu.cshtml" />
+    <Content Include="Views\Pregled\PretraziRezervacije.cshtml" />
+    <Content Include="Views\Pregled\PretraziSlobodneKnjige.cshtml" />
+    <Content Include="Views\Pregled\IzdavanjeKnjiga.cshtml" />
+    <Content Include="Views\Pregled\KnjigaIzdana.cshtml" />
+    <Content Include="Views\Pregled\UpisNovogClana.cshtml" />
+    <Content Include="Views\Pregled\PopisClanova.cshtml" />
+    <Content Include="Views\Pregled\KnjigePoAbecedi.cshtml" />
+    <Content Include="Views\Pregled\PopisSlobodnihKnjiga.cshtml" />
+    <Content Include="Views\Pregled\NajpopularnijeKnjige.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

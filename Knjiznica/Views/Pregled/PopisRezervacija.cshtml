@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Knjiznica.Models.Rezervacija>
+
+@{
+    ViewBag.Title = "PopisRezervacija";
+}
+
+
+<style>
+
+
+    tr {
+        border: 1px solid white !important;
+    }
+
+    th {
+        border: 1px solid white !important;
+    }
+
+    td {
+        border: 1px solid white !important;
+    }
+</style>
+
+
+
+<h2>Popis svih rezervacija</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seminar)
+        </th>
+    </tr>
+
+
+
+
+
+    @foreach (var rez in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => rez.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => rez.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => rez.NaslovKnjige)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => rez.Status)
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => rez.Seminar)
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+</div>

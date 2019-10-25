@@ -1,106 +1,177 @@
 ﻿@model IEnumerable<Knjiznica.Models.Rezervacija>
 
-
 @{
     ViewBag.Title = "PregledRezervacija";
 }
 
+
+<style>
+
+
+    tr {
+        border: 1px solid white !important;
+    }
+
+    th {
+        border: 1px solid white !important;
+    }
+
+    td {
+        border: 1px solid white !important;
+    }
+</style>
+
+
+
 <h2>Pregled rezervacija knjiga</h2>
 
-<h3>Linkovi</h3>
 
 
-<div class="container-fluid">
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
 
-    <div class="row">
-        <div class="col-sm-4" style="background-color:white;">
+
+                <h4 style="text-align:center">
+
+                    <span class="glyphicon glyphicon-search"></span>
+                    Rezervacije
+                </h4>
+
+                <div class="btn-group" role="group" aria-label="Rezervacije" style="margin-left:5%">
+                    <button type="button" class="btn btn-info">
+                        @Html.ActionLink("Popis rezervacija", "PopisRezervacija", null, new { @style = "color:#000000;" })
+                    </button>
+                    <button type="button" class="btn btn-warning">
+                        @Html.ActionLink("Odobrene", "OdobrenaRezervacija", null, new { @style = "color:#000000;" })
+                    </button>
 
 
-            <div class="list-group" id="list-tab" role="tablist">
+                    <button type="button" class="btn btn-warning">
+                        @Html.ActionLink("Neodobrene", "NeodobrenaRezervacija", null, new { @style = "color:#000000;" })
+                    </button>
 
-                <p> @Html.ActionLink("Rezervacije", "PregledRezervacija")</p>
 
-                <p>  @Html.ActionLink("Knjige", "Knjige") </p>
 
-                <p>    @Html.ActionLink("Odjava", "Odjava")</p>
+                </div>
+
+
+
 
 
             </div>
+            <div class="col-sm-4">
 
 
+                <h4 style="text-align:center">
+                    <span class="glyphicon glyphicon-search"></span>
+                    Knjige
+                </h4>
+
+                <button type="button" class="btn btn-warning" style="margin-left:25%">
+                    @Html.ActionLink("Upis knjige", "UpisKnjige", null, new { @style = "color:#000000;" })
+
+                </button>
+
+                <button type="button" class="btn btn-info" style="margin-left:-2%">
+                    @Html.ActionLink("Popis knjiga", "Knjige", null, new { @style = "color:#000000;" })
+
+                </button>
+
+
+            </div>
+            <div class="col-sm-4">
+
+
+
+                <h4 style="text-align:center">
+                    <span class="glyphicon glyphicon-search"></span>
+                    Članovi
+                </h4>
+
+
+                <div class="btn-group" role="group" aria-label="Knjige" style="margin-left:15%">
+                    <button type="button" class="btn btn-warning">
+                        @Html.ActionLink("Upis člana", "UpisNovogClana", null, new { @style = "color:#000000;" })
+
+                    </button>
+                    <button type="button" class="btn btn-info">
+                        @Html.ActionLink("Popis članova", "PopisClanova", null, new { @style = "color:#000000;" })
+                    </button>
+
+                    <button type="button" class="btn btn-danger">
+                        @Html.ActionLink("Odjava", "Odjava", null, new { @style = "color:#000000;" })
+                    </button>
+
+                </div>
+
+
+            </div>
         </div>
-        <div class="col-sm-4" style="background-color:white;"></div>
-
-
-
-
-
-        <br />
-
-
-
-
-
-
-        <div class="col-sm-4" style="background-color:white;"></div>
-
-
-
     </div>
 
-    @Html.ActionLink("Povratak", "Index")
-
-    <table>
-        <tr></tr>
+    <hr />
 
 
+    <hr />
+
+    @using (Html.BeginForm("PretraziRezervacije", "Pregled", FormMethod.Post))
+    {
+
+
+        <p>
+            Ključna riječ
+        </p>
+
+
+        @Html.TextBox("kljucnaRijec")
+
+
+        <input type="submit" value="Pretraži" />
+    }
+
+
+    <br />
 
 
 
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NaslovKnjige)
+            </th>
+
+            <th>Status</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaslovKnjige)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Dodijeli status", "Status_rezervacije", new { rezervacijaId = item.RezervacijaID })
+
+                </td>
+            </tr>
+        }
 
     </table>
+
 </div>
-
-
-
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prezime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NaslovKnjige)
-        </th>
-        <th></th>
-    </tr>
-
-
-   @if(Model != null) {
-
-    foreach (var item in Model)
-    {
-        <tr>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NaslovKnjige)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RezervacijaID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RezervacijaID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RezervacijaID })
-            </td>
-        </tr>
-    }
-    }
-
-</table>

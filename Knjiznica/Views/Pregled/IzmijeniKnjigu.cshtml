@@ -1,0 +1,150 @@
+﻿
+
+@model IEnumerable<Knjiznica.Models.Knjiga>
+
+
+@{
+    ViewBag.Title = "IzmijeniKnjigu";
+
+}
+
+<h2>Detalji o knjizi</h2>
+
+
+
+
+@using (Html.BeginForm("IzmijenjenaKnjiga", "Pregled", new { knjigaID = @ViewBag.knjigaID }, FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+
+
+
+
+    <dt>
+        Naslov knjige
+    </dt>
+    <dd>
+
+
+        @Html.TextBox("naslovKnjige", (string)ViewBag.naslov)
+
+
+
+
+
+    </dd>
+    <dd>
+
+        @Html.ValidationMessage("naslov", "Naslov ne može biti veći od 50 znakova", new { style = "color:red"})
+    </dd>
+
+    <br />
+
+    <dt>
+        Opis
+    </dt>
+    <dd>
+
+
+
+
+
+        @Html.TextArea("opisKnjige", (string)ViewBag.opis, new { style = "width:500px; height:150px; wrap:hard; rows:10;cols:20" })
+
+
+
+
+
+
+
+    </dd>
+
+    <dd>
+
+        @Html.ValidationMessage("opis", "Opis ne može biti veći od 250 znakova", new { style = "color:red" })
+
+    </dd>
+    <br />
+
+
+
+
+    <dt>
+        Posudbe
+    </dt>
+    <dd>
+
+
+
+        @Html.TextBox("brojPosudba", (int)ViewBag.brojPosudba)
+
+
+    </dd>
+
+    <dd>
+        @Html.ValidationMessage("posudba", "Broj posudbi ne može biti veći od broja knjiga", new { style = "color:red" })
+    </dd>
+    <br />
+
+    <dt>
+        Ukupan broj knjiga
+    </dt>
+    <dd>
+
+
+
+        @Html.TextBox("brojKnjiga", (int)ViewBag.brojKnjiga)
+
+
+
+    </dd>
+
+    <dd>
+        @Html.ValidationMessage("knjiga", "Broj knjiga ne može biti manji od broja posudbi", new { style = "color:red" })
+    </dd>
+    <br />
+
+
+    <dt>
+        Zatvoren
+    </dt>
+    <dd>
+
+
+   
+
+        @Html.CheckBox("Zatvoren", false)
+
+
+    </dd>
+
+    <dd>
+        @Html.ValidationMessage("zatvoren", "OBAVEZNO zatvaranje knjige ako je broj posudbi jednak broju knjiga", new { style = "color:red" })
+    </dd>
+    <br />
+
+
+
+
+
+    <input type="submit" value="Upiši izmjenu" style="color:#428bd4"/>
+
+
+
+    @*<button type="submit" value="Izmijeni">
+        @Html.ActionLink("Izmijeni", "PromijeniKnjigu", new { naslov = ViewBag.naslov, opis = ViewBag.opis, brojPosudba = ViewBag.brojPosudba, brojKnjiga = ViewBag.brojKnjiga })
+    </button>*@
+
+
+    <button type="submit" value="Izbrisi">
+        @Html.ActionLink("Izbriši knjigu", "IzbrisiKnjigu", new { naslov = ViewBag.naslov })
+    </button>
+
+}
+
+
+<br />
+
+@Html.ActionLink("Povratak", "Knjige")
+

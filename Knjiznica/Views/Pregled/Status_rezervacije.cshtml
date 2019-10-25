@@ -1,0 +1,113 @@
+﻿@model  Knjiznica.Models.Rezervacija
+
+@{
+    ViewBag.Title = "Status_rezervacije";
+}
+
+<h2>Status rezervacije</h2>
+
+
+<h4>Rezervacija</h4>
+
+
+
+
+
+@using (Html.BeginForm("UpisiRezervacijuSaStatusom", "Pregled", new { rezervacijaId = Model.RezervacijaID }, FormMethod.Post))
+{
+    <dt>
+        Ime
+    </dt>
+    <dd>
+
+        @Html.DisplayFor(modelItem => Model.Ime)
+
+
+
+    </dd>
+    <br />
+
+    <dt>
+        Prezime
+    </dt>
+    <dd>
+
+        @Html.DisplayFor(modelItem => Model.Prezime)
+
+    </dd>
+    <br />
+
+
+    <dt>
+        Naslov knjige
+    </dt>
+    <dd>
+
+
+        @Html.DisplayFor(modelItem => Model.NaslovKnjige)
+
+    </dd>
+    <br />
+
+
+
+    <dt>
+        Upisi seminar
+    </dt>
+
+
+
+    <dd>
+        <input type="text" id="" name="Seminar" />
+    </dd>
+    <br />
+
+
+
+
+
+    <dt>
+        Status
+    </dt>
+    <dd>
+
+        <input type="radio" name="Status" value="Prihvaćeno"> Prihvaćeno<br>
+        <input type="radio" name="Status" value="Odbijeno"> Odbijeno<br>
+
+
+    </dd>
+    <br />
+
+
+   
+
+
+    <input type="submit" value="Upisi" style="color:#428bd4" />
+
+
+    <button type="submit" value="Izmijeni">
+        @Html.ActionLink("Izmijeni", "IzmijeniRezervaciju", new { rezervacijaId = Model.RezervacijaID, ime = Model.Ime, prezime = Model.Prezime, naslovKnjige = Model.NaslovKnjige})
+    </button>
+
+
+    <button type="submit" value="Izbrisi">
+        @Html.ActionLink("Izbriši", "IzbrisiRezervaciju", new { rezervacijaId = Model.RezervacijaID, posudbaID = Model.PosudbaID })
+    </button>
+
+}
+
+
+
+<div>
+
+
+</div>
+
+<br />
+
+<div>
+    @Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+</div>
+
+
+

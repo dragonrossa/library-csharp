@@ -3,27 +3,37 @@
     ViewBag.Title = "Prijava";
 }
 
-<h2>Prijava</h2>
+<div class="container">
+    <h2>Prijava</h2>
+</div>
 
-@using (Html.BeginForm("PrijavaUspjesna", "Pregled", FormMethod.Post))
-{
-    <dt>
-        Upišite korisničko ime:
-    </dt>
-    <dd>
-        <input type="text" id="" name="KorisnickoIme" />
-    </dd>
-    <br />
+<div class="container">
 
-    <dt>
-        Upišite lozinku:
-    </dt>
-    <dd>
-        <input type="text" id="" name="Lozinka" />
-    </dd>
-    <br />
+    @using (Html.BeginForm("PrijavaUspjesna", "Pregled", FormMethod.Post))
+    {
+        <dt>
+            Upišite korisničko ime:
+        </dt>
+        <dd>
+            <input type="text" id="" name="KorisnickoIme" />
+        </dd>
+        <br />
+
+        <dt>
+            Upišite lozinku:
+        </dt>
+        <dd>
+            <input type="password" id="" name="Lozinka" />
+        </dd>
+        <br />
 
 
-    <input type="submit" value="Prijavi se" />
+        <input type="submit" value="Prijavi se" />
 
-}
+    }
+
+</div>
+<br />
+    <div class="container">
+        @Html.ActionLink("Povratak", "Index")
+    </div>

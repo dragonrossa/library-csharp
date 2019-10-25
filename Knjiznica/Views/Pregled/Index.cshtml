@@ -2,54 +2,197 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.datum = DateTime.Now;
 }
 
-<h2>Pregled slobodnih knjiga</h2>
-
-@*<label>Total Students:</label>  @ViewBag.TotalStudents*@
 
 
+<br />
 
-<button type="button"> @Html.ActionLink("Registracija", "Registracija")</button> <button type="button"> @Html.ActionLink("Prijava", "Prijava")</button>
+
+@using (Html.BeginForm("PretraziSlobodneKnjige", "Pregled", FormMethod.Post))
+{
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-7"> <h4> Danas je  @ViewBag.datum.</h4></div>
+            @*<div class="col-sm-4">
+
+
+
+
+
+                </div>*@
+            <div class="col-sm-5">
+
+                Pretraga po naslovu knjige
+
+
+                @Html.TextBox("slobodnaKnjiga")
+      
+                <input type="submit" value="Pretraži" class="btn btn-link" />
+           
+
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+
+        <p style="font-family:Comic Sans MS, cursive, sans-serif; font-size:20px">
+            “Good friends, good books, and a sleepy conscience: this is the ideal life.”
+
+        </p>
+
+        <p style="font-family:Comic Sans MS, cursive, sans-serif; font-size:15px">
+            ― Mark Twain
+        </p>
+
+
+        <hr>
+
+        <h5>
+            U knjižnici možete posuđivati te rezervirati knjige koje su slobodne.
+            <br />Ako ste naš član dovoljno je samo da rezervirate knjigu.
+            <br />Ako niste naš član potrebno je obaviti registraciju na stranici kako biste mogli nastaviti s posudbom.
+            <br />Posudbe će obaviti osoblje knjižnice te je na vama samo da preuzmete knjigu.
+            <br />
+            Uživajte u izboru i nadamo se da ćete pronaći knjigu po svojem ukusu!
+        </h5>
+        <h5>Ugodnu zabavu želi vam društvo Hrvatskih ljubitelja knjiga!</h5>
+    </div>
+
+    <hr />
+
+
+
+
+
+}
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+
+           
+            <h4 style="text-align:center">
+
+                <span class="glyphicon glyphicon-search"></span>
+                Logiraj se kao korisnik
+            </h4>
+
+            <div class="btn-group" role="group" aria-label="Prijava i registracija" style="margin-left:40%">
+                <button type="button" class="btn btn-warning">
+                    @Html.ActionLink("Prijava", "Prijava", null, new { @style = "color:#000000;" })
+                </button>
+               
+
+            </div>
+
+
+
+
+
+        </div>
+        <div class="col-sm-4">
+
+            
+            <h4 style="text-align:center">
+                <span class="glyphicon glyphicon-search"></span>
+            Posudi knjigu</h4>
+
+            <button type="button" class="btn btn-warning" style="margin-left:32%">
+                @Html.ActionLink("Slobodne knjige", "PopisSlobodnihKnjiga", null, new { @style = "color:#000000;" })
+
+            </button>
+
+
+        </div>
+        <div class="col-sm-4">
+
+            
+
+            <h4 style="text-align:center">
+                <span class="glyphicon glyphicon-search"></span>
+            TOP liste - popisi</h4>
+
+
+            <div class="btn-group" role="group" aria-label="Knjige" style="margin-left:5%">
+                <button type="button" class="btn btn-warning">
+                    @Html.ActionLink("Knjige od A do Ž", "KnjigePoAbecedi", null, new { @style = "color:#000000;" })
+
+                </button>
+                <button type="button" class="btn btn-warning">
+                    @Html.ActionLink("Popis najpopularnijih knjiga", "NajpopularnijeKnjige", null, new { @style = "color:#000000;" })
+                </button>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
 <br />
 <br />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NaslovKnjige)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImePisca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrezimePisca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GodinaIzdanja)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            @*<img src="..." alt="..." style="image-orientation:inherit">*@
+            <div class="caption">
+                <h3 style="text-align:center">Pročitaj najnovije vijesti</h3>
+                <br />
+                @*<p style="text-align:center">...</p>*@
+                <p style="text-align:center"> <a href="#" class="btn btn-default" role="button">Saznaj više</a></p>
+            </div>
+        </div>
+    </div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NaslovKnjige)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImePisca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrezimePisca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GodinaIzdanja)
-            </td>
-            <td>
-                @Html.ActionLink("Rezervacija", "Rezervacija", new { id = item.KnjigaID })
-            </td>
-        </tr>
-    }
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            @*<img src="..." alt="...">*@
+            <div class="caption">
+                <h3 style="text-align:center">Uključi se u raspravu</h3>
+                <br />
+                @*<p style="text-align:center">...</p>*@
+                <p style="text-align:center"> <a href="#" class="btn btn-default" role="button">Saznaj više</a></p>
+            </div>
+        </div>
+    </div>
 
-</table>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          @*  <img src="..." alt="...">*@
+            <div class="caption">
+                <h3 style="text-align:center">Pogledaj video</h3>
+                <br />
+                @*<p style="text-align:center">...</p>*@
+                <p style="text-align:center"> <a href="#" class="btn btn-default" role="button">Saznaj više</a></p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<br />
+<br />
+<br />
+<div></div>
+
+    <img src="/Image/test.jpg" />
+
+
+
+
+
+
+
+

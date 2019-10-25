@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+@{
+    ViewBag.Title = "PretraziKnjigu";
+}
+
+<h2>Rezultat pretraga knjiga</h2>
+
+@ViewBag.knjiga
+
+
+<table class="table">
+    <tr>
+
+        <th>Odaberi</th>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zatvoren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojPosudba)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrojKnjiga)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.ActionLink("Odaberi", "IzmijeniKnjigu", new { knjigaID = item.KnjigaID, naslovKnjige = item.NaslovKnjige, opis = item.Opis, zatvoren = item.Zatvoren, brojPosudba = item.BrojPosudba, brojKnjiga = item.BrojKnjiga })
+
+            </td>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zatvoren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojPosudba)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojKnjiga)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+

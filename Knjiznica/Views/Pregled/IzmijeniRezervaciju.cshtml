@@ -1,0 +1,113 @@
+﻿@model  Knjiznica.Models.Rezervacija
+
+@{
+    ViewBag.Title = "IzmijeniRezervaciju";
+}
+
+<h2>Izmijeni rezervaciju</h2>
+
+
+@using (Html.BeginForm("IzmijenjenaRezervacija", "Pregled", new { rezervacijaId = ViewBag.rezervacija, novaKnjiga = (string[])ViewBag.zamijena }, FormMethod.Post))
+{
+    <dt>
+        Ime
+    </dt>
+    <dd>
+
+
+
+        @ViewBag.ime
+
+    </dd>
+    <br />
+
+    <dt>
+        Prezime
+    </dt>
+    <dd>
+
+
+        @ViewBag.prezime
+
+    </dd>
+    <br />
+
+
+    <dt>
+        Naslov knjige
+    </dt>
+    <dd>
+
+
+
+        @ViewBag.naslovKnjige
+
+    </dd>
+
+    <br />
+
+    @*<dt>
+
+        Zamjenska knjiga:
+
+    </dt>
+
+
+
+    <dd>
+
+
+        @foreach (string knjig in ViewBag.zamijena)
+        {
+
+        <dd>
+            @knjig
+        </dd>
+    }
+
+        </dd>*@
+
+        <dt>
+
+            Izaberite s popisa drugu knjigu:
+
+
+
+        </dt>
+
+        <dd>
+
+            @Html.DropDownList("novaKnjiga", new SelectList((string[])ViewBag.zamijena), "Izaberi")
+      
+
+        </dd>
+
+        <br />
+
+
+
+        <input type="submit" value="Izmijeni" />
+
+
+
+
+    }
+
+
+
+<div>
+
+
+</div>
+
+<br />
+
+<div>
+    @Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+</div>
+
+
+
+
+
+

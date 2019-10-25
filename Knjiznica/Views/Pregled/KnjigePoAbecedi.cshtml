@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+
+@{
+    ViewBag.Title = "KnjigePoAbecedi";
+}
+
+<style>
+
+
+    tr {
+        border: 1px solid white !important;
+    }
+
+    th {
+        border: 1px solid white !important;
+    }
+
+    td {
+        border: 1px solid white !important;
+    }
+</style>
+
+
+
+<h2>Popis knjiga po abecedi</h2>
+
+
+<table class="table">
+    <tr>
+
+  
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.NaslovKnjige)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+ 
+            <td>
+                @Html.DisplayFor(modelItem => item.NaslovKnjige)
+            </td>
+            
+
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Povratak", "Index")
+

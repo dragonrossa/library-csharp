@@ -1,0 +1,50 @@
+﻿@model Knjiznica.Models.Knjiga
+@{
+    ViewBag.Title = "KnjigaIzdana";
+}
+
+<h2>KnjigaIzdana</h2>
+
+
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<h3>Račun @Html.DisplayFor(x => x.NaslovKnjige) izdan!</h3>
+
+<br />
+
+<h3>Podaci računa: </h3>
+
+<hr />
+
+<div>
+    @Html.LabelFor(x => x.NaslovKnjige)
+    @Html.DisplayFor(x => x.NaslovKnjige)
+</div>
+
+<div>
+    @Html.LabelFor(x => x.ImePisca)
+    @Html.DisplayFor(x => x.ImePisca)
+</div>
+<div>
+    @Html.LabelFor(x => x.PrezimePisca)
+    @Html.DisplayFor(x => x.PrezimePisca)
+</div>
+<div>
+    @Html.LabelFor(x => x.GodinaIzdanja)
+    @Html.DisplayFor(x => x.GodinaIzdanja)
+</div>
+<div>
+    @Html.LabelFor(x => x.Opis)
+    @Html.DisplayFor(x => x.Opis)
+</div>
+<div>
+    @Html.LabelFor(x => x.BrojKnjiga)
+    @Html.DisplayFor(x => x.BrojKnjiga)
+</div>

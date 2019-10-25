@@ -3,27 +3,40 @@
 }
 
 
-<h2>Registracija</h2>
+<div class="container">
+    <h2>Registracija</h2>
+</div>
 
-@using (Html.BeginForm("RegistracijaUspjesna", "Pregled", FormMethod.Post))
-{
-    <dt>
-        Korisničko ime:
-    </dt>
-    <dd>
-        <input type="text" id="" name="KorisnickoIme" />
-    </dd>
-    <br />
+<div class="container">
 
-    <dt>
-        Lozinka:
-    </dt>
-    <dd>
-        <input type="text" id="" name="Lozinka" />
-    </dd>
-    <br />
+    @using (Html.BeginForm("RegistracijaUspjesna", "Pregled", FormMethod.Post))
+    {
+        <dt>
+            Korisničko ime:
+        </dt>
+        <dd>
+            <input type="text" id="" name="KorisnickoIme" />
+        </dd>
+        <br />
+
+        <dt>
+            Lozinka:
+        </dt>
+        <dd>
+            <input type="password" id="" name="Lozinka" />
+        </dd>
+        <br />
 
 
-    <input type="submit" value="Registriraj se" />
+        <input type="submit" value="Registriraj se" />
 
-}
+    }
+
+</div>
+
+<br />
+
+<div class="container">
+    @Html.ActionLink("Povratak", "Index")
+
+</div>

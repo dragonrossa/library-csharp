@@ -1,0 +1,174 @@
+﻿@model IEnumerable<Knjiznica.Models.Zaposlenik>
+
+
+@{
+    ViewBag.Title = "UpisNovogClana";
+}
+
+<div class="container">
+
+    <h2>Upis novog člana knjižnice</h2>
+</div>
+
+
+<div class="container">
+
+
+    @using (Html.BeginForm())
+
+    {
+        @Html.ValidationSummary()
+
+
+
+        <dt>
+            Korisničko ime
+        </dt>
+        <dd>
+
+
+            @Html.TextBox("korisnickoIme")
+
+
+
+
+
+
+        </dd>
+
+
+        <br />
+
+
+        <dt>
+            Lozinka
+        </dt>
+        <dd>
+
+
+            @Html.TextBox("lozinka")
+            @* @Html.ValidationMessageFor(x => x.ImePisca)*@
+
+
+
+
+        </dd>
+
+
+        <br />
+
+
+        <dt>
+            Ime zaposlenika
+        </dt>
+        <dd>
+
+
+            @Html.TextBox("imeZaposlenika")
+
+            @* @Html.ValidationMessageFor(x => x.PrezimePisca)*@
+
+
+
+        </dd>
+
+
+        <br />
+
+        <dt>
+            Prezime zaposlenika
+        </dt>
+        <dd>
+
+
+            @Html.TextBox("prezimeZaposlenika")
+
+
+
+
+
+        </dd>
+
+
+        <br />
+
+
+
+
+        <dt>
+            Adresa zaposlenika
+        </dt>
+        <dd>
+
+
+
+
+
+            @Html.TextBox("adresaZaposlenika")
+
+
+
+        </dd>
+
+
+
+        <br />
+
+        <dt>
+            Poštanski broj
+        </dt>
+        <dd>
+
+
+
+            @Html.TextBox("postanskiBroj")
+
+
+
+        </dd>
+
+
+        <br />
+
+        <dt>
+            Odjel zaposlenika
+        </dt>
+        <dd>
+
+
+
+            @Html.TextBox("odjelZaposlenika")
+
+
+
+        </dd>
+
+
+
+        <br />
+
+
+
+
+
+        <input type="submit" value="Upisi" />
+
+
+
+
+    }
+
+
+    <br />
+
+
+
+
+
+</div>
+
+
+<div class="container">
+    @Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
+</div>
+

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Knjiznica.Models.Knjiga>
+
+@{
+    ViewBag.Title = "PopisSlobodnihKnjiga";
+}
+
+
+<style>
+
+
+    tr {
+        border: 1px solid white !important;
+    }
+
+    th {
+        border: 1px solid white !important;
+    }
+
+    td {
+        border: 1px solid white !important;
+    }
+  
+
+   
+</style>
+
+
+<div class="container">
+    <h2>Popis slobodnih knjiga</h2>
+</div>
+
+<div class="container">
+    <h5>U nastavku slijedi popis slobodnih knjiga. </h5>
+    <h5>Posudite knjigu koja vam se sviđa.</h5>
+    <h5><u>Ugodnu zabavu!</u></h5>
+</div>
+
+<br />
+<div class="container" >
+    <table class="table" >
+        <tr >
+            <th >
+                @* @Html.DisplayNameFor(model => model.NaslovKnjige)*@
+                Naslov knjige
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.ImePisca)*@
+                Ime pisca
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.PrezimePisca)*@
+                Prezime pisca
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.GodinaIzdanja)*@
+                Godina izdanja
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.SlobodneKnjige)*@
+                Broj knjiga
+            </th>
+
+
+            @*<th>
+                    @Html.DisplayNameFor(model => model.BrojKnjiga)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrojPosudba)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaslovKnjige)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImePisca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezimePisca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GodinaIzdanja)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SlobodneKnjige)
+                </td>
+
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.BrojKnjiga)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrojPosudba)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Rezervacija", "Rezervacija", new { id = item.KnjigaID })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+   
+</div>
+
+<div class="container">
+    @Html.ActionLink("Povratak", "Index")
+</div>

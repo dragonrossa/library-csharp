@@ -1,0 +1,162 @@
+﻿@model Knjiznica.Models.Knjiga
+
+@{
+    ViewBag.Title = "UpisKnjige";
+    Html.EnableClientValidation(false);
+}
+
+
+
+<h2>Upis nove knjige</h2>
+
+
+
+<style>
+    label {
+        display: inline-block;
+        width: 50px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+
+
+
+@*@using (Html.BeginForm("NovaKnjiga", "Pregled", FormMethod.Post))*@
+
+@using (Html.BeginForm())
+
+{
+    @Html.ValidationSummary()
+
+
+
+    <dt>
+        Naslov knjige
+    </dt>
+    <dd>
+
+
+        @Html.TextBox("naslovKnjige")
+
+
+
+
+
+
+    </dd>
+
+
+    <br />
+
+
+    <dt>
+        Ime pisca
+    </dt>
+    <dd>
+
+
+        @Html.TextBox("imePisca")
+        @* @Html.ValidationMessageFor(x => x.ImePisca)*@
+
+
+
+
+    </dd>
+
+
+    <br />
+
+
+    <dt>
+        Prezime pisca
+    </dt>
+    <dd>
+
+
+        @Html.TextBox("prezimePisca")
+
+        @* @Html.ValidationMessageFor(x => x.PrezimePisca)*@
+
+
+
+    </dd>
+
+
+    <br />
+
+    <dt>
+        Godina izdanja
+    </dt>
+    <dd>
+
+
+        @Html.TextBox("godinaIzdanja")
+
+
+
+
+
+    </dd>
+
+
+    <br />
+
+
+
+
+    <dt>
+        Opis
+    </dt>
+    <dd>
+
+
+
+
+
+        @Html.TextArea("opisKnjige", new { style = "width:500px; height:150px; wrap:hard; rows:10;cols:20" })
+
+        @Html.ValidationMessageFor(x=>x.Opis, "Opis knjige nije nužan");
+
+
+
+    </dd>
+
+
+
+
+
+    <dt>
+        Broj knjiga
+    </dt>
+    <dd>
+
+
+
+        @Html.TextBox("brojKnjiga")
+
+
+
+    </dd>
+
+
+
+
+    <br />
+
+
+
+
+
+    <input type="submit" value="Upisi" />
+
+
+
+
+}
+
+
+<br />
+
+@Html.ActionLink("Povratak na rezervacije", "PregledRezervacija")
