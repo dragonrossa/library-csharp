@@ -39,11 +39,11 @@ namespace Knjiznica.Controllers
               public ActionResult PopisSlobodnihKnjiga()
         {
 
-            //string freeBooksQuery = "SELECT * FROM free_books";
+           
 
             string freeBooksQuery = "SELECT * FROM slobodne_knjige2";
 
-            //string freeBooksQuery = "SELECT KnjigaID, NaslovKnjige,ImePisca, PrezimePisca, GodinaIzdanja, BrojKnjiga, BrojPosudba FROM Knjige where BrojPosudba<BrojKnjiga and Zatvoren='false'";
+           
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -68,7 +68,7 @@ namespace Knjiznica.Controllers
                     Console.WriteLine(ex.Message);
                 }
             }
-            //ViewBag.TotalStudents = ListaKnjiga.Count;
+            
             return View(ListaKnjiga);
         }
 
@@ -77,7 +77,7 @@ namespace Knjiznica.Controllers
         public ActionResult PretraziSlobodneKnjige(FormCollection form)
         {
             string slobodnaKnjiga = form["slobodnaKnjiga"];
-            //ViewBag.slobodnaKnjiga = slobodnaKnjiga;
+       
 
 
             string freeBooksQuery = "SELECT * FROM slobodne_knjige2 WHERE NaslovKnjige=@slobodnaKnjiga";
@@ -121,34 +121,7 @@ namespace Knjiznica.Controllers
 
            
 
-            //string posudbaTop = "SELECT TOP 5(COUNT(p.KnjigaID)) as 'Broj posudbi',  k.NaslovKnjige as 'Naslov', k.ImePisca + ' '+ k.PrezimePisca as 'Ime i prezime pisca' FROM Posudba p JOIN Knjige k on p.KnjigaID = k.KnjigaID GROUP BY p.KnjigaID, k.NaslovKnjige, k.ImePisca, k.PrezimePisca ORDER BY 'Broj posudbi' DESC";
-
-            
-
-            //using (SqlConnection connection = new SqlConnection(ConnStr))
-            //{
-               
-            //    SqlCommand command = new SqlCommand(posudbaTop, connection);
-
-            //    try
-            //    {
-            //        connection.Open();
-            //        SqlDataReader reader = command.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            Debug.WriteLine("\t{0}\t{1}\t{2}",
-            //                reader[0], reader[1], reader[2]);
-
-            //            Posudba.Add(new Posudba(Int32.Parse(reader[0].ToString()), reader[1].ToString(), reader[2].ToString() )));
-            //        }
-            //        reader.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine(ex.Message);
-            //    }
-            //}
-            //ViewBag.TotalStudents = ListaKnjiga.Count;
+           
             return View();
 
 
@@ -283,7 +256,7 @@ namespace Knjiznica.Controllers
 
 
         [HttpPost]
-        //[Authorize(Users = "Rosana")]
+       
         public ActionResult RegistracijaUspjesna(FormCollection form)
         {
             Zaposlenik zaposlenik = new Zaposlenik(form["KorisnickoIme"], form["Lozinka"]);
@@ -336,7 +309,7 @@ namespace Knjiznica.Controllers
             return View();
         }
 
-        //[Authorize(Users = "Ivica")]
+      
 
         [HttpPost]
         public ActionResult PrijavaUspjesna(FormCollection form)
@@ -419,12 +392,12 @@ namespace Knjiznica.Controllers
         public ActionResult PregledRezervacija()
         {
 
-            //string rezervacijaQuery = "SELECT r.RezervacijaID, r.Ime, r.Prezime, k.NaslovKnjige AS NaslovKnjige, r.PosudbaID FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID";
+           
 
 
             string rezervacijaQuery = "SELECT r.RezervacijaID, r.Ime, r.Prezime, k.NaslovKnjige AS NaslovKnjige, r.PosudbaID FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID where r.Seminar is NULL and r.Status is null";
 
-            //Debug.WriteLine("Hej");
+
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -436,7 +409,7 @@ namespace Knjiznica.Controllers
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //Debug.Write("Zašto se ne vidi");
+                   
                         Debug.WriteLine("{0},{1},{2},{3},{4}", reader[0], reader[1], reader[2], reader[3], reader[4]);
 
                         ListaRezervacija.Add(new Rezervacija
@@ -564,10 +537,7 @@ namespace Knjiznica.Controllers
             return View();
         }
 
-        //public ActionResult PromijeniKnjigu(string naslovKnjige, string opis, int brojPosudba, int brojKnjiga)
-        //{
-        //    return View();
-        //}
+   
 
         public ActionResult IzbrisiKnjigu(string naslov)
         {
@@ -646,10 +616,7 @@ namespace Knjiznica.Controllers
                     ModelState.AddModelError("GodinaIzdanja", "Godina je obavezna!");
                 }
 
-                //if (string.IsNullOrEmpty(knjiga.Opis))
-                //{
-                //    ModelState.AddModelError("Opis", "Opis je obavezan!");
-                //}
+         
 
                 if (knjiga.BrojKnjiga == 0)
                 {
@@ -784,7 +751,7 @@ namespace Knjiznica.Controllers
         public ActionResult PretraziKnjigu(FormCollection form)
         {
             string naslov = form["naslovKnjige"].ToString();
-            //Debug.WriteLine(naslov);
+          
             ViewBag.knjiga = naslov;
 
             string freeBooksQuery = "SELECT KnjigaID, NaslovKnjige,Opis, Zatvoren, BrojPosudba,BrojKnjiga FROM Knjige WHERE NaslovKnjige=@naslov";
@@ -876,7 +843,7 @@ namespace Knjiznica.Controllers
 
             string rezervacijaQuery = "SELECT r.RezervacijaID, r.Ime, r.Prezime, k.NaslovKnjige, r.Seminar, r.Status, r.PosudbaID FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID";
 
-            //Debug.WriteLine("Hej");
+           
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -888,7 +855,7 @@ namespace Knjiznica.Controllers
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //Debug.Write("Zašto se ne vidi");
+                  
                         Debug.WriteLine("{0},{1},{2},{3},{4},{5}", reader[0], reader[1], reader[2], reader[3], reader[4], reader[5]);
 
                         ListaRezervacija.Add(new Rezervacija
@@ -916,7 +883,7 @@ namespace Knjiznica.Controllers
         {
             string rezervacijaQuery = "SELECT r.Ime, r.Prezime, k.NaslovKnjige AS NaslovKnjige, r.Seminar, r.Status FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID where r.Seminar is not NULL and r.Status is not null";
 
-            //Debug.WriteLine("Hej");
+   
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -928,7 +895,7 @@ namespace Knjiznica.Controllers
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //Debug.Write("Zašto se ne vidi");
+                        
                         Debug.WriteLine("{0},{1},{2},{3},{4}", reader[0], reader[1], reader[2], reader[3], reader[4]);
 
                         ListaRezervacija.Add(new Rezervacija(reader[0].ToString(), reader[1].ToString(),
@@ -954,7 +921,7 @@ namespace Knjiznica.Controllers
 
             string rezervacijaQuery = "SELECT r.RezervacijaID, r.Ime, r.Prezime, k.NaslovKnjige AS NaslovKnjige, r.PosudbaID, r.Seminar, r.Status FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID where r.Seminar is NULL and r.Status is null";
 
-            //Debug.WriteLine("Hej");
+
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -966,7 +933,7 @@ namespace Knjiznica.Controllers
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //Debug.Write("Zašto se ne vidi");
+                       
                         Debug.WriteLine("{0},{1},{2},{3},{4}", reader[0], reader[1], reader[2], reader[3], reader[4]);
 
                         ListaRezervacija.Add(new Rezervacija
@@ -997,7 +964,7 @@ namespace Knjiznica.Controllers
 
             string rezervacijaQuery = "SELECT r.RezervacijaID, r.Ime, r.Prezime, k.NaslovKnjige, r.Seminar, r.Status, r.PosudbaID FROM RezervacijaKnjiga r JOIN Knjige k ON k.KnjigaID = r.KnjigaID where Ime = @kljucnaRijec or Prezime = @kljucnaRijec or NaslovKnjige = @kljucnaRijec or Seminar = @kljucnaRijec or Status = @kljucnaRijec";
 
-            //Debug.WriteLine("Hej");
+    
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -1011,7 +978,7 @@ namespace Knjiznica.Controllers
                    
                     while (reader.Read())
                     {
-                        //Debug.Write("Zašto se ne vidi");
+                  
                         Debug.WriteLine("{0},{1},{2},{3},{4},{5}, {6}", reader[0], reader[1], reader[2], reader[3], reader[4], reader[5], reader[6]);
 
                         ListaRezervacija.Add(new Rezervacija
@@ -1094,7 +1061,7 @@ namespace Knjiznica.Controllers
    
 
 
-            //return View("PregledRezervacija", ListaRezervacija);
+           
 
             return View();
         }
@@ -1102,8 +1069,7 @@ namespace Knjiznica.Controllers
         public ActionResult IzmijeniRezervaciju(int rezervacijaId, string ime, string prezime, string naslovKnjige)
         {
 
-            //, object sender, EventArgs e
-            //Napisati kako se izmijeni rezervacija - promjena knjige
+        
 
             Debug.WriteLine("RezervacijaID " + rezervacijaId);
             Debug.WriteLine("Ime " + ime);
@@ -1146,9 +1112,7 @@ namespace Knjiznica.Controllers
 
                         ListaKnjiga.Add(new Knjiga(reader[0].ToString()));
 
-                        //ViewBag.zamjenskaknjiga = reader[0].ToString();
-
-                        //ViewBag.zamjena = ListaKnjiga.FirstOrDefault().NaslovKnjige;
+                       
 
                         ViewBag.zamijena = ListaKnjiga.Select(knji => knji.NaslovKnjige).ToArray();
 
@@ -1156,7 +1120,7 @@ namespace Knjiznica.Controllers
 
                         foreach (string knjig in knjigice)
                         {
-                            //Console.WriteLine(knjig);
+                           
                             Debug.WriteLine(knjig);
 
 
@@ -1211,11 +1175,7 @@ namespace Knjiznica.Controllers
 
                         ViewBag.zamKnjigaID = reader[0].ToString();
 
-                       // Debug.WriteLine(zamKnjigaID);
-
-                        ////ViewBag.zamjena = ListaKnjiga.FirstOrDefault().NaslovKnjige;
-
-                        //ViewBag.zamijena = ListaKnjiga.Select(knji => knji.NaslovKnjige).ToArray();
+                     
 
 
 
@@ -1266,11 +1226,6 @@ namespace Knjiznica.Controllers
 
                         ViewBag.zamPosudbaID = reader[0].ToString();
 
-                        // Debug.WriteLine(zamKnjigaID);
-
-                        ////ViewBag.zamjena = ListaKnjiga.FirstOrDefault().NaslovKnjige;
-
-                        //ViewBag.zamijena = ListaKnjiga.Select(knji => knji.NaslovKnjige).ToArray();
 
 
 
@@ -1556,10 +1511,7 @@ namespace Knjiznica.Controllers
         public ActionResult UpisNovogClana(FormCollection form)
         {
 
-            //Zaposlenik zaposlenik = new Zaposlenik(form["KorisnickoIme"], form["Lozinka"], form["ImeZaposlenika"],form);
-
-            //Debug.WriteLine("Korisnicko ime: " + form["korisnickoIme"]);
-            //Debug.WriteLine("Lozinka: " + zaposlenik.Lozinka);
+     
 
             using (SqlConnection connection = new SqlConnection(ConnStr))
             {
@@ -1640,7 +1592,7 @@ namespace Knjiznica.Controllers
                     Console.WriteLine(ex.Message);
                 }
             }
-            //ViewBag.TotalStudents = ListaKnjiga.Count;
+    
             return View(noviZaposlenik);
 
       
