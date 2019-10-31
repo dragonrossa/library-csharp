@@ -1,13 +1,27 @@
 # library-csharp
-Library made with C#
+Hello, this is CSharp Library!
+
+This library is created in ASP.net in combination of C#, HTML, JS, TSQL and others.
+
+- Features 
+As user you can:
+- see and sort out what books we have in library
+- create a reservation for those books
+- sort the books and see some other sortings - from A to Z 
+
+As admin (library employee) you can: 
+- login into admin account and with your rights you can create new user (new employee)
+- manage reservations (give statuses - agree / disagree)
+- list reservations by status
+- manage books ( create new books(server validation) or edit existing books)
+- list existing books and edit those books (client validation)
 
 
-Library created in ASP net with C#, worked with MSSQL and TSQL.
-- Features - see  what books are in library and create new user
-- Login and registration
 
 DOWNLOAD this folder
 
-CREATE DATABASE Knjiznica from Knjiznica_database.sql
+CREATE DATABASE Knjiznica from mdf and ldf file (primary database file + transaction log)
 
-OPEN SOLUTION in Visual Studio and ENJOY
+OPEN SOLUTION in Visual Studio and ENJOY 
+
+Have fun! :)
