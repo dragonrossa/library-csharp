@@ -1,6 +1,11 @@
 # library-csharp
 Hello, this is CSharp Library!
 
+Test it with user:
+ivana.h
+Password:
+iva4567
+
 This library is created in ASP.net in combination of C#, HTML, JS, TSQL and others.
 
 - Features 
